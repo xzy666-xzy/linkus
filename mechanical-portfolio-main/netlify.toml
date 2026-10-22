@@ -5,5 +5,5 @@
 [build.environment]
   NODE_VERSION = "22"
 
-# Netlify detects Next.js and installs its OpenNext adapter automatically.
-# Keep the base directory at the repository root. Do not publish public/ or out/.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
