@@ -6,7 +6,7 @@ export const demoCopy = {
     remove: 'Remove file',
     sinchon: 'Sinchon studio rental',
     uploadNotice:
-      'This demo shows predefined Mapo results. LinkUs does not send your file or analyze its contents. You can try the sample without selecting a file.',
+      'This demo shows predefined results from the built-in samples. LinkUs does not send your file or analyze its contents. You can try the sample without selecting a file.',
     keptInTab: 'Kept in this tab only.',
     levels: ['High', 'Medium', 'Low'],
     reason: 'Why it was flagged',
@@ -99,7 +99,7 @@ export const demoCopy = {
     remove: '移除文件',
     sinchon: '新村单间租房合同',
     uploadNotice:
-      '此演示展示预设的麻浦示例结果。LinkUs 不会发送文件或分析文件内容，也可以直接使用示例体验。',
+      '此演示展示内置合同的预设结果。LinkUs 不会发送文件或分析文件内容，也可以直接使用示例体验。',
     keptInTab: '仅保留在此标签页。',
     levels: ['高风险', '中风险', '低风险'],
     reason: '判定依据',
@@ -187,7 +187,7 @@ export const demoCopy = {
     remove: '파일 제거',
     sinchon: '신촌 원룸 임대차계약서',
     uploadNotice:
-      '이 데모는 미리 작성된 마포 샘플 결과를 보여 줍니다. LinkUs는 파일을 전송하거나 내용을 분석하지 않습니다. 파일 선택 없이 샘플을 이용할 수 있습니다.',
+      '이 데모는 미리 작성된 내장 예시의 결과를 보여 줍니다. LinkUs는 파일을 전송하거나 내용을 분석하지 않습니다. 파일 선택 없이 샘플을 이용할 수 있습니다.',
     keptInTab: '이 탭에만 남아요.',
     levels: ['높음', '보통', '낮음'],
     reason: '위험 판단 근거',
