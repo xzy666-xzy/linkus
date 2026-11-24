@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { demoCopy, words } from './demo-copy';
 import { designCopy } from './design-copy';
+import { ericaSampleCopy } from './erica-sample-copy';
 import { samples } from './demo';
 import type { Contract, Lang, Sample } from './demo';
 import { Badge, Button, Card, EmptyState } from './ui';
@@ -41,7 +42,13 @@ export function AnalysisView({
   const copy = demoCopy[lang];
   const ui = designCopy[lang];
   const data = samples[sample];
-  const details = sample === 'sinchon' ? copy.sinchonDetails : copy.mapo;
+  const erica = ericaSampleCopy[lang];
+  const details = {
+    erica: erica.details,
+    mapo: copy.mapo,
+    sinchon: copy.sinchonDetails,
+  }[sample];
+  const hasHighRisk = data.levels.includes(0);
   const titles = [t.deposit, t.fee, t.penalty, t.special];
   const [filter, setFilter] = useState('all');
   const [active, setActive] = useState<number | null>(null);
@@ -77,6 +84,7 @@ export function AnalysisView({
         <div>
           <strong>{t.demo}</strong>
           <p>{t.notice}</p>
+          {sample === 'erica' && <p>{erica.disclosure}</p>}
           {run?.name && <p>{copy.source}</p>}
           {missing && <p>{copy.missingRun}</p>}
         </div>
@@ -84,8 +92,8 @@ export function AnalysisView({
       <div className="results-grid">
         <Card className="risk-overview">
           <p className="eyebrow">{t.summary}</p>
-          <h2>{sample === 'mapo' ? t.risk : copy.lowSummary}</h2>
-          <p>{sample === 'mapo' ? t.riskSub : copy.lowDetail}</p>
+          <h2>{hasHighRisk ? t.risk : copy.lowSummary}</h2>
+          <p>{hasHighRisk ? t.riskSub : copy.lowDetail}</p>
           {run?.name && (
             <p className="file-reference">
               {copy.selected} · {run.name}
@@ -102,7 +110,7 @@ export function AnalysisView({
             </div>
             <div>
               <dt>{ui.leaseTerm}</dt>
-              <dd>{t.term}</dd>
+              <dd>{sample === 'erica' ? erica.term : t.term}</dd>
             </div>
           </dl>
           <div className="analysis-actions">

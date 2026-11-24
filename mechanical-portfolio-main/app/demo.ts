@@ -7,7 +7,7 @@ export type Page =
   | 'contracts'
   | 'reminders'
   | 'profile';
-export type Sample = 'mapo' | 'sinchon';
+export type Sample = (typeof sampleIds)[number];
 export type Contract = {
   id: string;
   name: string;
@@ -22,8 +22,15 @@ export type Reminder = {
 };
 export type Profile = { name: string; city: string };
 
-export const sampleIds = ['mapo', 'sinchon'] as const;
+export const defaultSample = 'erica';
+export const sampleIds = [defaultSample, 'mapo', 'sinchon'] as const;
 export const samples = {
+  erica: {
+    date: '2026-11-24',
+    rent: '₩400,000',
+    deposit: '₩3,000,000',
+    levels: [0, 1, 0, 1],
+  },
   mapo: {
     date: '2026-10-22',
     rent: '₩450,000',
@@ -67,7 +74,10 @@ export function readRoute() {
   const page = pages.find((candidate) => candidate === view) ?? 'home';
   return {
     page,
-    id: page === 'result' || page === 'checklist' ? id || 'mapo' : 'mapo',
+    id:
+      page === 'result' || page === 'checklist'
+        ? id || defaultSample
+        : defaultSample,
   };
 }
 

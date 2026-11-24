@@ -13,9 +13,9 @@ export const demoCopy = {
     explanation: 'What it means',
     action: 'What to do',
     source:
-      'This example uses the Mapo sample clauses. Your selected file was only checked for size and format.',
+      'These results use the displayed sample clauses. Your selected file was only checked for size and format.',
     missingRun:
-      'This run could not be restored. The Mapo example is shown below.',
+      'This run could not be restored. The ERICA example is shown below.',
     renewal: 'Review renewal terms.',
     validating: 'Checking file format…',
     selected: 'Selected file',
@@ -105,8 +105,8 @@ export const demoCopy = {
     reason: '判定依据',
     explanation: '对你意味着什么',
     action: '建议措施',
-    source: '以下结果使用麻浦示例条款。所选文件只进行了大小和格式检查。',
-    missingRun: '此记录无法恢复。下方显示麻浦示例。',
+    source: '以下结果来自所显示的示例条款。所选文件只进行了大小和格式检查。',
+    missingRun: '此记录无法恢复。下方显示 ERICA 示例。',
     renewal: '请查看续租条件。',
     validating: '正在检查文件格式…',
     selected: '所选文件',
@@ -194,8 +194,8 @@ export const demoCopy = {
     explanation: '어떤 의미인가요?',
     action: '권장 조치',
     source:
-      '아래 결과는 마포 샘플 조항을 사용합니다. 선택한 파일은 크기와 형식만 확인했습니다.',
-    missingRun: '이 기록을 불러올 수 없어 아래에 마포 샘플을 표시합니다.',
+      '아래 결과는 화면에 표시된 예시 조항을 바탕으로 합니다. 선택한 파일은 크기와 형식만 확인했습니다.',
+    missingRun: '이 기록을 불러올 수 없어 아래에 ERICA 예시를 표시합니다.',
     renewal: '갱신 조건을 확인하세요.',
     validating: '파일 형식을 확인하고 있어요…',
     selected: '선택한 파일',

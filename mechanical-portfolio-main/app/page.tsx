@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import {
   sampleIds,
+  defaultSample,
   samples,
   readRoute,
   dateLabel,
@@ -12,6 +13,7 @@ import type { Lang, Page, Sample, Contract, Reminder } from './demo';
 import { demoCopy, words } from './demo-copy';
 import { useDemoStorage } from './use-demo-storage';
 import { designCopy } from './design-copy';
+import { ericaSampleCopy } from './erica-sample-copy';
 import { AnalysisView } from './analysis-view';
 import { HomeView } from './home-view';
 import {
@@ -55,7 +57,7 @@ export default function App() {
   const { data, update, storageError } = useDemoStorage();
   const [route, setRoute] = useState<{ page: Page; id: string }>({
     page: 'home',
-    id: 'mapo',
+    id: defaultSample,
   });
   const [file, setFile] = useState<{
     name: string;
@@ -83,9 +85,14 @@ export default function App() {
   const currentRun =
     contracts.find((contract) => contract.id === id) ??
     drafts.find((contract) => contract.id === id);
-  const sample = currentRun?.sample ?? (id === 'sinchon' ? 'sinchon' : 'mapo');
+  const linkedSample = sampleIds.find((key) => key === id);
+  const sample = currentRun?.sample ?? linkedSample ?? defaultSample;
   const sampleName = (key: Sample) =>
-    key === 'mapo' ? t.contractName : copy.sinchon;
+    ({
+      erica: ericaSampleCopy[lang].name,
+      mapo: t.contractName,
+      sinchon: copy.sinchon,
+    })[key];
   const fullDate = (date: string) =>
     dateLabel(date, lang, { dateStyle: 'medium' });
 
@@ -114,13 +121,13 @@ export default function App() {
       id: newId(),
       name: file.sample ? '' : file.name,
       date: today(),
-      sample: file.sample ?? ('mapo' as const),
+      sample: file.sample ?? defaultSample,
     };
     setDrafts((previous) => [run, ...previous]);
     go('result', run.id);
   }
 
-  function go(next: Page, resultId = 'mapo') {
+  function go(next: Page, resultId: string = defaultSample) {
     location.hash =
       next === 'result' || next === 'checklist' ? next + '/' + resultId : next;
   }
@@ -204,7 +211,7 @@ export default function App() {
       <ChevronRight size={17} className="muted" />
     </button>
   );
-  const unknownRun = !currentRun && id !== 'mapo' && id !== 'sinchon';
+  const unknownRun = !currentRun && !linkedSample;
   const contractCard = (key: Sample) => (
     <button
       key={key}

@@ -14,7 +14,8 @@ import {
 } from 'lucide-react';
 import { demoCopy, words } from './demo-copy';
 import { designCopy } from './design-copy';
-import { samples } from './demo';
+import { ericaSampleCopy } from './erica-sample-copy';
+import { defaultSample, samples } from './demo';
 import type { Lang, Page } from './demo';
 import { Badge, Button, Card } from './ui';
 
@@ -82,7 +83,7 @@ export function HomeView({
               <Badge tone="mint">{t.demoData}</Badge>
             </div>
             <p className="eyebrow">{t.summary}</p>
-            <h2>{t.contractName}</h2>
+            <h2>{ericaSampleCopy[lang].name}</h2>
             <div className="preview-list">
               {[t.deposit, t.fee, t.penalty].map((clause, index) => (
                 <div key={clause} className="preview-row">
@@ -92,10 +93,12 @@ export function HomeView({
                   <span>{clause}</span>
                   <Badge
                     tone={
-                      ['danger', 'amber', 'green'][samples.mapo.levels[index]]
+                      ['danger', 'amber', 'green'][
+                        samples[defaultSample].levels[index]
+                      ]
                     }
                   >
-                    {copy.levels[samples.mapo.levels[index]]}
+                    {copy.levels[samples[defaultSample].levels[index]]}
                   </Badge>
                 </div>
               ))}

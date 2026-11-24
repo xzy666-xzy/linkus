@@ -35,7 +35,7 @@ export const designCopy = {
     scope: 'Demo scope',
     drop: 'Drop a contract here',
     fileReady:
-      'Format checked locally. The file was not sent or analyzed. The results use the Mapo sample.',
+      'Format checked locally. The file was not sent or analyzed. The results use the ERICA sample.',
     chooseExample: 'Choose a built-in example',
     viewSample: 'View sample analysis',
     document: 'Sample terms',
@@ -84,7 +84,7 @@ export const designCopy = {
     scope: '演示范围',
     drop: '将合同文件拖到此处',
     fileReady:
-      '文件格式已在本地检查。文件未发送，也未被分析。结果使用麻浦示例。',
+      '文件格式已在本地检查。文件未发送，也未被分析。结果使用 ERICA 示例。',
     chooseExample: '选择内置示例',
     viewSample: '查看示例分析',
     document: '示例条款',
@@ -135,7 +135,7 @@ export const designCopy = {
     scope: '데모 이용 범위',
     drop: '여기에 계약서 파일을 놓으세요',
     fileReady:
-      '기기에서 파일 형식을 확인했습니다. 파일은 전송하거나 분석하지 않았으며, 결과는 마포 예시를 사용합니다.',
+      '기기에서 파일 형식을 확인했습니다. 파일은 전송하거나 분석하지 않았으며, 결과는 ERICA 예시를 사용합니다.',
     chooseExample: '내장 예시 선택',
     viewSample: '예시 분석 보기',
     document: '예시 조항',
